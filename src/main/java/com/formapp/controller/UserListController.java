@@ -24,7 +24,6 @@ public class UserListController {
 
     @FXML
     public void initialize() {
-        // Bind columns to User properties
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         firstNameCol.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         lastNameCol.setCellValueFactory(new PropertyValueFactory<>("lastName"));
