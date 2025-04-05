@@ -5,10 +5,7 @@ import com.formapp.model.User;
 import com.formapp.service.UserService;
 import com.formapp.util.SceneManager;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
 
 public class UserFormController {
 
