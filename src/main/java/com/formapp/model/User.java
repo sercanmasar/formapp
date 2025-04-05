@@ -17,6 +17,7 @@ public class User {
         this.lastName.set(lastName);
         this.email.set(email);
         this.phoneNumber.set(phoneNumber);
+
     }
 
     // Getters
@@ -33,4 +34,5 @@ public class User {
     public SimpleStringProperty lastNameProperty() { return lastName; }
     public SimpleStringProperty emailProperty() { return email; }
     public SimpleStringProperty phoneNumberProperty() { return phoneNumber; }
+
 }
