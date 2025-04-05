@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.Objects;
 
 public class SceneManager {
@@ -18,12 +19,21 @@ public class SceneManager {
 
     public static void switchScene(String fxmlPath, String title) {
         try {
-            FXMLLoader loader = new FXMLLoader(SceneManager.class.getResource(fxmlPath));
+            URL resource = SceneManager.class.getResource(fxmlPath);
+            if (resource == null) {
+                System.err.println("FXML not found: " + fxmlPath);
+                return;
+            } else {
+                System.out.println("FXML found: " + resource);
+            }
+
+            FXMLLoader loader = new FXMLLoader(resource);
             Parent root = loader.load();
             Scene scene = new Scene(root);
             primaryStage.setTitle(title);
             primaryStage.setScene(scene);
         } catch (IOException e) {
+            System.err.println("FXML yüklenirken hata oluştu:");
             e.printStackTrace();
         }
     }
