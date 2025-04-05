@@ -5,12 +5,20 @@
 <?import javafx.scene.layout.VBox?>
 
 <VBox alignment="CENTER" spacing="15.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.formapp.controller.UserFormController">
+      fx:controller="com.formapp.controller.UserListController">
     <padding>
         <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
     </padding>
 
     <Label text="User Registration Form" style="-fx-font-size: 18px;"/>
 
-    <ListView fx:id="userListView" prefHeight="200.0" prefWidth="300.0"/>
+    <TableView fx:id="userTable" prefHeight="200.0" prefWidth="500.0">
+        <columns>
+            <TableColumn fx:id="idCol" text="User ID"/>
+            <TableColumn fx:id="firstNameCol" text="First Name"/>
+            <TableColumn fx:id="lastNameCol" text="Last Name"/>
+            <TableColumn fx:id="emailCol" text="Email"/>
+            <TableColumn fx:id="phoneNumberCol" text="Phone Number"/>
+        </columns>
+    </TableView>
 </VBox>

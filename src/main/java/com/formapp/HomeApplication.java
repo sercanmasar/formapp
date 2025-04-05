@@ -13,7 +13,7 @@ public class HomeApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         SceneManager.setStage(primaryStage);
-        SceneManager.switchScene("/com/formapp/view/user-form.fxml", "User Registration");
+        SceneManager.switchScene("/com/formapp/user-form.fxml", "User Registration");
         primaryStage.show();
     }
 

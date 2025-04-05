@@ -12,11 +12,16 @@ import javafx.stage.Stage;
 
 public class UserFormController {
 
-    @FXML private TextField firstNameField;
-    @FXML private TextField lastNameField;
-    @FXML private TextField emailField;
-    @FXML private TextField phoneNumberField;
-    @FXML private Label statusLabel;
+    @FXML
+    private TextField firstNameField;
+    @FXML
+    private TextField lastNameField;
+    @FXML
+    private TextField emailField;
+    @FXML
+    private TextField phoneNumberField;
+    @FXML
+    private Label statusLabel;
 
     private final UserService userService = new UserService();
 
@@ -27,7 +32,7 @@ public class UserFormController {
         String email = emailField.getText();
         String phone = phoneNumberField.getText();
 
-        User user = new User(firstName, lastName, email, phone);
+        User user = new User(null, firstName, lastName, email, phone);
         boolean success = userService.saveUser(user);
 
         if (success) {
@@ -36,11 +41,13 @@ public class UserFormController {
         } else {
             statusLabel.setText("Failed to register user.");
         }
+
+        handleGoToUserList();
     }
 
     @FXML
     private void handleGoToUserList() {
-        SceneManager.switchScene("/com/formapp/view/user-list.fxml", "User List");
+        SceneManager.switchScene("/com/formapp/user-list.fxml", "User List");
     }
 
     private void clearFields() {

@@ -3,6 +3,9 @@ package com.formapp.util;
 import com.formapp.model.User;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class DatabaseHelper {
     private static final String DB_URL = "jdbc:sqlite:users.db";
@@ -35,6 +38,27 @@ public class DatabaseHelper {
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
+        }
+    }
+
+    public static List<User> getAllUsers() {
+        try (Connection conn = DriverManager.getConnection(DB_URL);
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT * FROM users")) {
+            List<User> users = new ArrayList<>();
+            while (rs.next()) {
+                User user = new User(
+                        rs.getString("id"),
+                        rs.getString("first_name"),
+                                     rs.getString("last_name"),
+                                     rs.getString("email"),
+                                     rs.getString("phone_number"));
+                users.add(user);
+            }
+            return users;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return Collections.emptyList();
         }
     }
 }
